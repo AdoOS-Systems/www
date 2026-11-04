@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>The AdoOS Project — Lightweight Alpine-based OS</title>
+    <title>The AdoOS Project — Lightweight Alpine Derivative</title>
     
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
 
@@ -29,7 +29,6 @@
         }
     </script>
     
-    <!-- Google Fonts: English, Persian (Vazirmatn), Japanese (Noto Sans JP) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -51,7 +50,6 @@
             transition: font-family 0.2s ease;
         }
 
-        /* Language-specific Typography */
         html[lang="fa"] body { font-family: 'Vazirmatn', sans-serif; }
         html[lang="ja"] body { font-family: 'Noto Sans JP', sans-serif; }
         html[lang="en"] body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -148,7 +146,6 @@
             color: #0066cc;
         }
 
-        /* Lang Button Pill */
         .lang-btn {
             font-size: 0.75rem;
             padding: 0.3rem 0.65rem;
@@ -161,26 +158,15 @@
             color: white;
             box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
         }
-        .lang-btn:not(.active) {
-            color: #64748b;
-        }
-        .lang-btn:not(.active):hover {
-            background: #e2e8f0;
-            color: #0f172a;
-        }
+        .lang-btn:not(.active) { color: #64748b; }
+        .lang-btn:not(.active):hover { background: #e2e8f0; color: #0f172a; }
 
         @keyframes floatGentle {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-7px) rotate(1.5deg); }
         }
-        .chibi-anim {
-            animation: floatGentle 4s ease-in-out infinite;
-        }
-
-        .kaomoji {
-            display: inline-block;
-            direction: ltr !important;
-        }
+        .chibi-anim { animation: floatGentle 4s ease-in-out infinite; }
+        .kaomoji { display: inline-block; direction: ltr !important; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased ambient-grid selection:bg-ado-cyan selection:text-ado-dark">
@@ -188,8 +174,6 @@
     <!-- Top Navigation Header -->
     <header class="macos-header sticky top-0 z-50 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            
-            <!-- Brand Logo -->
             <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse group">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-900 to-ado-navy p-0.5 shadow-md group-hover:scale-105 transition-transform">
                     <img src="./assets/profile.png" alt="AdoOS" class="w-full h-full object-cover rounded-[10px]" />
@@ -199,25 +183,24 @@
                         <img src="./assets/logo.png" alt="AdoOS" class="h-6 sm:h-7 w-auto object-contain" />
                         <span class="text-xs text-ado-blue mono kaomoji font-bold hidden sm:inline">(~^.^)~</span>
                     </div>
-                    <span class="text-[10px] tracking-wider text-slate-500 font-bold uppercase" data-i18n="tagline">Alpine-Based Platform</span>
+                    <span class="text-[10px] tracking-wider text-slate-500 font-bold uppercase" data-i18n="tagline">Alpine Derivative</span>
                 </div>
             </a>
 
             <!-- Desktop Links & Language Switcher -->
             <nav class="hidden md:flex items-center gap-1">
                 <a href="#overview" class="nav-item text-ado-blue bg-blue-50/80"><i class="fa-solid fa-compass mx-1"></i><span data-i18n="nav_overview">Overview</span></a>
-                <a href="#specifications" class="nav-item"><i class="fa-solid fa-microchip mx-1 text-slate-400"></i><span data-i18n="nav_specs">Specs</span></a>
+                <a href="#specifications" class="nav-item"><i class="fa-solid fa-layer-group mx-1 text-slate-400"></i><span data-i18n="nav_specs">Design</span></a>
+                <a href="#scope" class="nav-item"><i class="fa-solid fa-shield-halved mx-1 text-slate-400"></i><span data-i18n="nav_scope">Scope</span></a>
                 <a href="download.html" class="nav-item"><i class="fa-solid fa-download mx-1 text-slate-400"></i><span data-i18n="nav_build">Build ISO</span></a>
-                <a href="#documentation" class="nav-item"><i class="fa-solid fa-terminal mx-1 text-slate-400"></i><span data-i18n="nav_docs">Docs</span></a>
+                <a href="#documentation" class="nav-item"><i class="fa-solid fa-terminal mx-1 text-slate-400"></i><span data-i18n="nav_docs">Status</span></a>
 
-                <!-- Language Selector -->
                 <div class="flex items-center bg-slate-100/80 p-0.5 rounded-lg border border-slate-200 ml-3 rtl:mr-3 rtl:ml-0">
                     <button onclick="setLang('en')" class="lang-btn" id="lang-en">EN</button>
                     <button onclick="setLang('fa')" class="lang-btn" id="lang-fa">Fa</button>
                     <button onclick="setLang('ja')" class="lang-btn" id="lang-ja">日本語</button>
                 </div>
 
-                <!-- Socials -->
                 <div class="flex items-center gap-1 ml-3 rtl:mr-3 rtl:ml-0 pl-3 rtl:pr-3 rtl:pl-0 border-l rtl:border-r rtl:border-l-0 border-slate-200">
                     <a href="https://github.com/owarimono/AdoOS" target="_blank" rel="noopener noreferrer" class="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all" title="GitHub">
                         <i class="fa-brands fa-github text-base"></i>
@@ -241,21 +224,20 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-4 py-3 border-t border-slate-200/80 bg-white/95 backdrop-blur-2xl">
             <div class="flex flex-col space-y-1">
                 <a href="#overview" class="mobile-nav-link p-2.5 rounded-lg text-sm font-semibold text-ado-blue bg-blue-50/70"><i class="fa-solid fa-compass mx-2"></i><span data-i18n="nav_overview">Overview</span></a>
-                <a href="#specifications" class="mobile-nav-link p-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100"><i class="fa-solid fa-microchip mx-2 text-slate-400"></i><span data-i18n="nav_specs">Specifications</span></a>
+                <a href="#specifications" class="mobile-nav-link p-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100"><i class="fa-solid fa-layer-group mx-2 text-slate-400"></i><span data-i18n="nav_specs">Design</span></a>
+                <a href="#scope" class="mobile-nav-link p-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100"><i class="fa-solid fa-shield-halved mx-2 text-slate-400"></i><span data-i18n="nav_scope">Scope</span></a>
                 <a href="download.html" class="mobile-nav-link p-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100"><i class="fa-solid fa-download mx-2 text-slate-400"></i><span data-i18n="nav_build">Build ISO</span></a>
-                <a href="#documentation" class="mobile-nav-link p-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100"><i class="fa-solid fa-terminal mx-2 text-slate-400"></i><span data-i18n="nav_docs">Docs</span></a>
+                <a href="#documentation" class="mobile-nav-link p-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100"><i class="fa-solid fa-terminal mx-2 text-slate-400"></i><span data-i18n="nav_docs">Status</span></a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="overview" class="relative overflow-hidden bg-gradient-to-b from-[#081220] via-[#0b172a] to-[#0d1e38] text-white py-16 sm:py-24">
-        
-        <!-- Video Background -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
             <div class="absolute top-0 right-0 rtl:left-0 rtl:right-auto w-full md:w-[60%] h-full opacity-60">
                 <video autoplay muted loop playsinline class="w-full h-full object-cover">
@@ -268,11 +250,10 @@
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
             <div class="max-w-2xl">
-                
                 <!-- Status Pill -->
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-ado-cyan/10 border border-ado-cyan/30 text-ado-cyan text-xs font-semibold mb-6 shadow-sm">
                     <span class="w-2 h-2 rounded-full bg-ado-cyan animate-pulse"></span>
-                    <span data-i18n="hero_status">AdoOS v0.1.0 dev &bull; Active Tree</span>
+                    <span data-i18n="hero_status">Live ISO Tree &bull; Rootless Reproducible</span>
                     <span class="mono kaomoji font-normal">(•̀ᴗ•́)و</span>
                 </div>
 
@@ -285,30 +266,29 @@
                 </div>
 
                 <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-xl" data-i18n="hero_desc">
-                    An Alpine Linux 3.24.1 derivative. Unmodified musl libc, OpenRC, and standard apk packages. AdoOS adds a deterministic build system and a minimalist developer overlay.
+                    An Alpine derivative where every change is a profile, an overlay file, or a package — never a patched recipe. Built on Alpine 3.24.1 with musl libc, OpenRC, and the rebranded abo package tool.
                 </p>
 
                 <!-- Actions -->
                 <div class="flex flex-col sm:flex-row gap-3.5 sm:items-center">
                     <a href="download.html" class="btn-primary">
                         <i class="fa-solid fa-terminal text-sm"></i>
-                        <span data-i18n="btn_build_iso">How to Build ISO</span>
+                        <span data-i18n="btn_build_iso">Build ISO (Rootless)</span>
                         <span class="mono text-xs opacity-80 kaomoji">＼(^_^)／</span>
                     </a>
                     <a href="#specifications" class="btn-secondary">
                         <i class="fa-solid fa-sliders text-sm text-ado-cyan"></i>
-                        <span data-i18n="btn_specs">Architecture Specs</span>
+                        <span data-i18n="btn_specs">Design Rules</span>
                     </a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Main Content Grid -->
+    <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full flex-grow space-y-16">
         
-        <!-- Specifications -->
+        <!-- Specifications / Design Principles -->
         <section id="specifications">
             <div data-aos="fade-up" class="flex items-center justify-between pb-4 mb-8 border-b border-slate-200">
                 <div class="flex items-center gap-3">
@@ -316,8 +296,8 @@
                         <i class="fa-solid fa-layer-group text-lg"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight" data-i18n="specs_heading">System Architecture</h2>
-                        <p class="text-xs text-slate-500 mt-0.5" data-i18n="specs_subheading">Core principles of the AdoOS distribution</p>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight" data-i18n="specs_heading">Design Rule: Layers, Not Forks</h2>
+                        <p class="text-xs text-slate-500 mt-0.5" data-i18n="specs_subheading">AdoOS adds declarative layers on top of official Alpine upstream</p>
                     </div>
                 </div>
                 <span class="mono text-xs text-slate-400 font-semibold hidden sm:inline kaomoji">(~_~)v</span>
@@ -328,16 +308,16 @@
                 <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-6 sm:p-7 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-[11px] font-bold text-ado-blue bg-blue-50 px-2.5 py-1 rounded-md uppercase tracking-wider" data-i18n="card1_badge">Base System</span>
+                            <span class="text-[11px] font-bold text-ado-blue bg-blue-50 px-2.5 py-1 rounded-md uppercase tracking-wider" data-i18n="card1_badge">Clean Aports</span>
                             <span class="mono text-xs text-slate-400 kaomoji">(•_•)</span>
                         </div>
-                        <h3 class="text-base font-bold text-slate-900 mb-2" data-i18n="card1_title">Unmodified Alpine Base</h3>
+                        <h3 class="text-base font-bold text-slate-900 mb-2" data-i18n="card1_title">Untouched Upstream</h3>
                         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="card1_text">
-                            Alpine 3.24.1 with musl libc and OpenRC. The aports tree is an untouched upstream checkout, eliminating libc fragmentation.
+                            No recipes in Alpine's aports are modified. The ISO profile mkimg.adoos.sh is loaded via $HOME/.mkimage/ cleanly without touching upstream checkout.
                         </p>
                     </div>
                     <div class="mt-5 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-500">
-                        <i class="fa-solid fa-check text-emerald-500"></i> <span data-i18n="card1_footer">Pure Alpine Compatibility</span>
+                        <i class="fa-solid fa-check text-emerald-500"></i> <span data-i18n="card1_footer">Zero Upstream Fragmentation</span>
                     </div>
                 </div>
 
@@ -345,16 +325,16 @@
                 <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-6 sm:p-7 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-[11px] font-bold text-ado-blue bg-blue-50 px-2.5 py-1 rounded-md uppercase tracking-wider" data-i18n="card2_badge">Package Flow</span>
+                            <span class="text-[11px] font-bold text-ado-blue bg-blue-50 px-2.5 py-1 rounded-md uppercase tracking-wider" data-i18n="card2_badge">Toolchain</span>
                             <span class="mono text-xs text-slate-400 kaomoji">(⊙_⊙)</span>
                         </div>
-                        <h3 class="text-base font-bold text-slate-900 mb-2" data-i18n="card2_title">Native apk Integration</h3>
+                        <h3 class="text-base font-bold text-slate-900 mb-2" data-i18n="card2_title">Rebranded abo Manager</h3>
                         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="card2_text">
-                            The package manager is Alpine's apk: same repository ecosystem and security model. AdoOS customizations are contained in profile overlays.
+                            apk-tools 3.0.6 is cleanly rebranded as abo. It retains full cryptographic compatibility and operates directly on official Alpine mirrors.
                         </p>
                     </div>
                     <div class="mt-5 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-500">
-                        <i class="fa-solid fa-check text-emerald-500"></i> <span data-i18n="card2_footer">No Custom Fork Overhead</span>
+                        <i class="fa-solid fa-check text-emerald-500"></i> <span data-i18n="card2_footer">Official Alpine Mirror Sync</span>
                     </div>
                 </div>
 
@@ -362,16 +342,63 @@
                 <div data-aos="fade-up" data-aos-delay="300" class="glass-card p-6 sm:p-7 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-[11px] font-bold text-ado-blue bg-blue-50 px-2.5 py-1 rounded-md uppercase tracking-wider" data-i18n="card3_badge">Determinism</span>
+                            <span class="text-[11px] font-bold text-ado-blue bg-blue-50 px-2.5 py-1 rounded-md uppercase tracking-wider" data-i18n="card3_badge">Build Integrity</span>
                             <span class="mono text-xs text-slate-400 kaomoji">d(ﾟ-ﾟ*)</span>
                         </div>
-                        <h3 class="text-base font-bold text-slate-900 mb-2" data-i18n="card3_title">Reproducible Builds</h3>
+                        <h3 class="text-base font-bold text-slate-900 mb-2" data-i18n="card3_title">Rootless & Deterministic</h3>
                         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="card3_text">
-                            Kernel pinned to Alpine's linux-lts 6.18.39. The image timestamp matches the git commit to ensure byte-for-byte reproducibility.
+                            Builds without root via unshare -Ur. Verifies Alpine minirootfs SHA-256 and pins timestamps to git commits (SOURCE_DATE_EPOCH) for bit-level reproducibility.
                         </p>
                     </div>
                     <div class="mt-5 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-500">
-                        <i class="fa-solid fa-check text-emerald-500"></i> <span data-i18n="card3_footer">Bit-level Verification</span>
+                        <i class="fa-solid fa-check text-emerald-500"></i> <span data-i18n="card3_footer">Cryptographic Minirootfs Check</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scope & Honest Boundaries (New section strictly adhering to README) -->
+        <section id="scope" data-aos="fade-up" class="glass-card p-6 sm:p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600">
+                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight" data-i18n="scope_heading">Explicit Project Scope & Boundaries</h2>
+                    <p class="text-xs text-slate-500 mt-0.5" data-i18n="scope_subheading">What AdoOS is — and what it intentionally avoids</p>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                    <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-900 block mb-0.5" data-i18n="scope1_t">No glibc Runtime Layer</strong>
+                        <span class="text-slate-600 leading-relaxed" data-i18n="scope1_d">Pure musl libc. Gcompat is available for basic C sonames, while glibc desktop software is targeted through Flatpak & distrobox rather than host mutations.</span>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                    <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-900 block mb-0.5" data-i18n="scope2_t">No Custom Binary Repository</strong>
+                        <span class="text-slate-600 leading-relaxed" data-i18n="scope2_d">AdoOS builds no binary packages of its own. It directly uses upstream Alpine main/community repositories, eliminating sync latency and supply-chain risk.</span>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                    <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-900 block mb-0.5" data-i18n="scope3_t">Live ISO System (No Installer)</strong>
+                        <span class="text-slate-600 leading-relaxed" data-i18n="scope3_d">Designed as a stateless exploration and developer Live environment booted from RAM. There is no disk installer or Calamares wizard.</span>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                    <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-900 block mb-0.5" data-i18n="scope4_t">Open Graphics Only</strong>
+                        <span class="text-slate-600 leading-relaxed" data-i18n="scope4_d">No proprietary NVIDIA / CUDA drivers are bundled. The graphics stack relies entirely on modern open-source drivers (nouveau / NVK / Mesa).</span>
                     </div>
                 </div>
             </div>
@@ -384,7 +411,7 @@
                     <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block shadow-sm"></span>
                     <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block shadow-sm"></span>
                     <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block shadow-sm"></span>
-                    <span class="text-xs font-medium text-slate-400 ml-2 mono">adoos@build-node: ~</span>
+                    <span class="text-xs font-medium text-slate-400 ml-2 mono">adoos@build-host: ~</span>
                 </div>
                 
                 <button id="copy-report-btn" class="text-xs mono text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 px-2.5 py-1 rounded-md transition-colors flex items-center gap-1.5">
@@ -394,27 +421,28 @@
             </div>
 
             <pre id="terminal-content" class="mono text-xs text-slate-200 bg-black/40 p-4 sm:p-5 rounded-xl border border-white/5 overflow-x-auto leading-relaxed">
-<span class="text-ado-cyan">[SYS_CHECK]</span> AdoOS Build Report &mdash; Current Tree
+<span class="text-ado-cyan">[SYS_SPEC]</span> AdoOS Build Report &mdash; Current Tree
 <span class="text-slate-400">[BASE]</span>      Alpine Linux 3.24.1 (musl libc / OpenRC)
-<span class="text-slate-400">[KERNEL]</span>    linux-lts 6.18.39 (unmodified official Alpine build)
-<span class="text-slate-400">[PKGMGR]</span>    apk v2.14+ (vanilla repositories enabled)
+<span class="text-slate-400">[KERNEL]</span>    Official Alpine linux-lts (vanilla upstream)
+<span class="text-slate-400">[TOOL]</span>      abo v3.0.6 (rebranded apk-tools, official repos)
 <span class="text-slate-400">[ARCH]</span>      x86_64
-<span class="text-slate-400">[CONTAIN]</span>   Builds via mkimage.sh inside user namespace (rootless)
-<span class="text-emerald-400">[STATUS]</span>    Ready for manual ISO compile <span class="text-ado-cyan font-bold">(*^._.^)v</span></pre>
+<span class="text-slate-400">[BUILD]</span>     unshare -Ur (Rootless fake-root / minirootfs SHA-256 verified)
+<span class="text-slate-400">[CONSOLE]</span>   console=tty0 console=ttyS0,115200 (qemu -nographic ready)
+<span class="text-emerald-400">[STATUS]</span>    Live ISO tree built &bull; Boot test in progress <span class="text-ado-cyan font-bold">(*^._.^)v</span></pre>
         </section>
 
         <!-- Minimal CTA Box -->
         <section data-aos="fade-up">
             <div class="glass-card p-8 sm:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-ado-cyan/30">
                 <div class="space-y-2 text-center md:text-left rtl:md:text-right">
-                    <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight" data-i18n="cta_title">Ready to compile the ISO?</h2>
+                    <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight" data-i18n="cta_title">Generate your own AdoOS ISO</h2>
                     <p class="text-sm text-slate-600 max-w-xl" data-i18n="cta_desc">
-                        No prebuilt binary is uploaded to mirrors yet. Download the build script and generate your clean, rootless ISO image directly from source.
+                        Every build is strictly reproducible and requires no root privileges. Read our build instructions and compile directly from source recipes.
                     </p>
                 </div>
                 <a href="download.html" class="btn-primary flex-shrink-0 w-full sm:w-auto">
                     <i class="fa-solid fa-code"></i>
-                    <span data-i18n="cta_button">Go to Build Center</span>
+                    <span data-i18n="cta_button">Open Build Center</span>
                 </a>
             </div>
         </section>
@@ -429,7 +457,7 @@
                 <div class="col-span-2 md:col-span-1">
                     <img src="./assets/logo.png" alt="AdoOS" class="h-6 w-auto mb-3" />
                     <p class="text-slate-400 leading-relaxed font-normal" data-i18n="footer_about">
-                        A lightweight Alpine-based distribution focused on simplicity and deterministic builds.
+                        An Alpine derivative where every change is a profile, an overlay file, or a package — never a patched recipe.
                     </p>
                 </div>
 
@@ -438,7 +466,7 @@
                     <ul class="space-y-2">
                         <li><a href="https://github.com/owarimono/AdoOS" target="_blank" class="hover:text-ado-cyan transition-colors" data-i18n="footer_github">GitHub Repo</a></li>
                         <li><a href="https://t.me/TheAdoOS" target="_blank" class="hover:text-ado-cyan transition-colors" data-i18n="footer_telegram">Telegram Channel</a></li>
-                        <li><a href="download.html" class="hover:text-ado-cyan transition-colors" data-i18n="footer_build">Build Instructions</a></li>
+                        <li><a href="download.html" class="hover:text-ado-cyan transition-colors" data-i18n="footer_build">Build Center</a></li>
                     </ul>
                 </div>
 
@@ -454,14 +482,14 @@
                     <h4 class="font-bold uppercase tracking-wider text-slate-200 mb-3 text-[11px]" data-i18n="footer_status_title">Project State</h4>
                     <div class="inline-flex items-center gap-2 text-emerald-400 font-semibold mb-2">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span data-i18n="footer_tree">Development Tree (v0.1.0)</span>
+                        <span data-i18n="footer_tree">Live ISO Development Tree</span>
                     </div>
-                    <p class="text-slate-500" data-i18n="footer_status_note">Unpublished pre-release.</p>
+                    <p class="text-slate-500" data-i18n="footer_status_note">Source recipes public on GitHub.</p>
                 </div>
             </div>
 
             <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
-                <div>&copy; 2026 The AdoOS Initiative. Open-source under MIT/GPL.</div>
+                <div>&copy; 2026 The AdoOS Project. Released under the MIT License.</div>
                 <div class="mono text-slate-400">Alpine Linux 3.24.1 Base</div>
             </div>
         </div>
@@ -471,124 +499,157 @@
     <script>
         const translations = {
             en: {
-                tagline: "Alpine-Based Platform",
+                tagline: "Alpine Derivative",
                 nav_overview: "Overview",
-                nav_specs: "Specs",
+                nav_specs: "Design",
+                nav_scope: "Scope",
                 nav_build: "Build ISO",
-                nav_docs: "Docs",
-                hero_status: "AdoOS v0.1.0 dev • Active Tree",
+                nav_docs: "Status",
+                hero_status: "Live ISO Tree • Rootless Reproducible",
                 hero_title: "Ado Operating System",
-                hero_desc: "An Alpine Linux 3.24.1 derivative. Unmodified musl libc, OpenRC, and standard apk packages. AdoOS adds a deterministic build system and a minimalist developer overlay.",
-                btn_build_iso: "How to Build ISO",
-                btn_specs: "Architecture Specs",
-                specs_heading: "System Architecture",
-                specs_subheading: "Core principles of the AdoOS distribution",
-                card1_badge: "Base System",
-                card1_title: "Unmodified Alpine Base",
-                card1_text: "Alpine 3.24.1 with musl libc and OpenRC. The aports tree is an untouched upstream checkout, eliminating libc fragmentation.",
-                card1_footer: "Pure Alpine Compatibility",
-                card2_badge: "Package Flow",
-                card2_title: "Native apk Integration",
-                card2_text: "The package manager is Alpine's apk: same repository ecosystem and security model. AdoOS customizations are contained in profile overlays.",
-                card2_footer: "No Custom Fork Overhead",
-                card3_badge: "Determinism",
-                card3_title: "Reproducible Builds",
-                card3_text: "Kernel pinned to Alpine's linux-lts 6.18.39. The image timestamp matches the git commit to ensure byte-for-byte reproducibility.",
-                card3_footer: "Bit-level Verification",
+                hero_desc: "An Alpine derivative where every change is a profile, an overlay file, or a package — never a patched recipe. Built on Alpine 3.24.1 with musl libc, OpenRC, and the rebranded abo package tool.",
+                btn_build_iso: "Build ISO (Rootless)",
+                btn_specs: "Design Rules",
+                specs_heading: "Design Rule: Layers, Not Forks",
+                specs_subheading: "AdoOS adds declarative layers on top of official Alpine upstream",
+                card1_badge: "Clean Aports",
+                card1_title: "Untouched Upstream",
+                card1_text: "No recipes in Alpine's aports are modified. The ISO profile mkimg.adoos.sh is loaded via $HOME/.mkimage/ cleanly without touching upstream checkout.",
+                card1_footer: "Zero Upstream Fragmentation",
+                card2_badge: "Toolchain",
+                card2_title: "Rebranded abo Manager",
+                card2_text: "apk-tools 3.0.6 is cleanly rebranded as abo. It retains full cryptographic compatibility and operates directly on official Alpine mirrors.",
+                card2_footer: "Official Alpine Mirror Sync",
+                card3_badge: "Build Integrity",
+                card3_title: "Rootless & Deterministic",
+                card3_text: "Builds without root via unshare -Ur. Verifies Alpine minirootfs SHA-256 and pins timestamps to git commits (SOURCE_DATE_EPOCH) for bit-level reproducibility.",
+                card3_footer: "Cryptographic Minirootfs Check",
+                scope_heading: "Explicit Project Scope & Boundaries",
+                scope_subheading: "What AdoOS is — and what it intentionally avoids",
+                scope1_t: "No glibc Runtime Layer",
+                scope1_d: "Pure musl libc. Gcompat is available for basic C sonames, while glibc desktop software is targeted through Flatpak & distrobox rather than host mutations.",
+                scope2_t: "No Custom Binary Repository",
+                scope2_d: "AdoOS builds no binary packages of its own. It directly uses upstream Alpine main/community repositories, eliminating sync latency and supply-chain risk.",
+                scope3_t: "Live ISO System (No Installer)",
+                scope3_d: "Designed as a stateless exploration and developer Live environment booted from RAM. There is no disk installer or Calamares wizard.",
+                scope4_t: "Open Graphics Only",
+                scope4_d: "No proprietary NVIDIA / CUDA drivers are bundled. The graphics stack relies entirely on modern open-source drivers (nouveau / NVK / Mesa).",
                 term_copy: "Copy Specs",
                 term_copied: "Copied! ✓",
-                cta_title: "Ready to compile the ISO?",
-                cta_desc: "No prebuilt binary is uploaded to mirrors yet. Download the build script and generate your clean, rootless ISO image directly from source.",
-                cta_button: "Go to Build Center",
-                footer_about: "A lightweight Alpine-based distribution focused on simplicity and deterministic builds.",
+                cta_title: "Generate your own AdoOS ISO",
+                cta_desc: "Every build is strictly reproducible and requires no root privileges. Read our build instructions and compile directly from source recipes.",
+                cta_button: "Open Build Center",
+                footer_about: "An Alpine derivative where every change is a profile, an overlay file, or a package — never a patched recipe.",
                 footer_links: "Links",
                 footer_github: "GitHub Repo",
                 footer_telegram: "Telegram Channel",
-                footer_build: "Build Instructions",
+                footer_build: "Build Center",
                 footer_dev: "Developer",
                 footer_status_title: "Project State",
-                footer_tree: "Development Tree (v0.1.0)",
-                footer_status_note: "Unpublished pre-release."
+                footer_tree: "Live ISO Development Tree",
+                footer_status_note: "Source recipes public on GitHub."
             },
             fa: {
-                tagline: "سیستم‌عامل سبک‌وزن مبتنی بر آلپاین",
+                tagline: "مشتق سبک‌وزن آلپاین",
                 nav_overview: "معرفی کلّی",
-                nav_specs: "مشخصات فنی",
+                nav_specs: "اصول طراحی",
+                nav_scope: "مرزها و اهداف",
                 nav_build: "ساخت ISO",
-                nav_docs: "مستندات",
-                hero_status: "نسخه توسعه AdoOS v0.1.0 • درخت فعال",
+                nav_docs: "وضعیت فنی",
+                hero_status: "درخت Live ISO • ساخت بدون روت و بازتولیدپذیر",
                 hero_title: "سیستم‌عامل ادو (AdoOS)",
-                hero_desc: "توزیعی سبک‌وزن بر پایه لینوکس آلپاین ۳.۲۴.۱. بهره‌گیری از musl libc، سیستم مقداردهی OpenRC و بسته‌های رسمی apk بدون دستکاری هسته؛ به همراه سیستم ساخت بازتولیدپذیر و لایه سفارشی مینیمال.",
-                btn_build_iso: "آموزش ساخت فایل ISO",
-                btn_specs: "مشخصات معماری سیستم",
-                specs_heading: "معماری و استانداردهای سیستم",
-                specs_subheading: "اصول هسته‌ای و فلسفه طراحی توزیع AdoOS",
-                card1_badge: "پایه اصلی",
-                card1_title: "بستر دست‌نخورده Alpine",
-                card1_text: "مبتنی بر Alpine 3.24.1 با musl libc و OpenRC. درخت مخازن aports مستقیماً از بالادست دریافت شده و هیچ‌گونه شاخه‌سازی یا انحراف در کتابخانه‌ها وجود ندارد.",
-                card1_footer: "سازگاری کامل با اکوسیستم آلپاین",
-                card2_badge: "مدیریت بسته‌ها",
-                card2_title: "ادغام بومی apk بدون انشعاب",
-                card2_text: "مدیر بسته همان apk رسمی است با همان مدل امنیتی و کلیدهای اعتبارسنجی. تمام تفاوت‌های AdoOS صرفاً در لایه پروفایل و فایل‌های Overlay اعمال شده‌اند.",
-                card2_footer: "پایداری حداکثری و امنیت بالادست",
-                card3_badge: "قطعیت خروجی",
-                card3_title: "ساخت‌های بازتولیدپذیر (قطعی)",
-                card3_text: "هسته رسمی لینوکس linux-lts 6.18.39. برچسب زمانی فایل ISO دقیقاً با آخرین کامیت گیت همگام‌سازی می‌شود تا ایمیج نهایی بایت‌به‌بایت تأییدپذیر باشد.",
-                card3_footer: "اعتبارسنجی دقیق در سطح بایت",
+                hero_desc: "مشتق شده از Alpine Linux که در آن هر تغییر یک پروفایل، یک فایل Overlay یا یک پکیج است — هرگز یک دستورالعمل پچ‌شده نیست. بر پایه آلپاین ۳.۲۴.۱ با musl libc، مدیریت OpenRC و ابزار ری‌برندشده abo.",
+                btn_build_iso: "ساخت ISO (بدون نیاز به Root)",
+                btn_specs: "قواعد معماری",
+                specs_heading: "قاعده طراحی: لایه‌گذاری، بدون فورک کردن",
+                specs_subheading: "سیستم‌عامل AdoOS لایه‌های مستقل خود را بدون دستکاری هسته آلپاین اضافه می‌کند",
+                card1_badge: "درخت دست‌نخورده",
+                card1_title: "حفظ کامل بالادست Alpine",
+                card1_text: "هیچ رسپی پکیجی در مخزن aports آلپاین پچ نمی‌شود. پروفایل ISO از طریق پوشه mkimage.$HOME بارگذاری شده و هسته را کاملاً تمیز نگه می‌دارد.",
+                card1_footer: "عدم ایجاد انشعاب در مخازن",
+                card2_badge: "ابزار مدیریت پکیج",
+                card2_title: "مدیر پکیج ری‌برند شده abo",
+                card2_text: "ابزار رسمی apk-tools نگارش 3.0.6 با عنوان تجاری abo کامپایل شده است. این ابزار بدون واسطه مستقیماً از مخازن رسمی Alpine بسته‌ها را دریافت می‌کند.",
+                card2_footer: "همگام‌سازی مستقیم با میرورهای آلپاین",
+                card3_badge: "امنیت و قطعیت بیلد",
+                card3_title: "بیلد بدون روت و بازتولیدپذیر",
+                card3_text: "کامپایل مستقل با unshare -Ur بدون نیاز به دسترسی root. احراز هویت هش SHA-256 ایمیج پایه و پین شدن زمان به کامیت گیت برای تضمین یکسانی بایت‌به‌بایت.",
+                card3_footer: "بررسی رمزنگاری‌شده هش minirootfs",
+                scope_heading: "مرزهای شفاف پروژه (What AdoOS is NOT)",
+                scope_subheading: "ویژگی‌های واقعی AdoOS و آنچه عمداً از آن پرهیز شده است",
+                scope1_t: "عدم ارائه ران‌تایم محلی glibc",
+                scope1_d: "مبتنی بر musl خالص. کتابخانه gcompat برای sonameهای پایه وجود دارد و نرم‌افزارهای وابسته به glibc در آینده از طریق Flatpak و Distrobox پشتیبانی می‌شوند.",
+                scope2_t: "عدم وجود مخزن باینری اختصاصی",
+                scope2_d: "پروژه AdoOS هیچ مخزن پکیج جداگانه‌ای نگهداری نمی‌کند؛ همه بسته‌ها بدون تأخیر مستقیماً از مخازن main و community آلپاین دریافت می‌شوند.",
+                scope3_t: "ایمیج زنده (فاقد نصاب دیسک)",
+                scope3_d: "سیستم فعلی یک محیط Live جهت تست و توسعه است که در حافظه رم اجرا می‌شود؛ اینستالر دسکتاپ یا Calamares تعبیه نشده است.",
+                scope4_t: "استک گرافیک کاملاً متن‌باز",
+                scope4_d: "درایورهای اختصاصی و انحصاری انویدیا (پروپرایتری) وجود ندارند؛ شتاب‌دهنده گرافیکی بر پایه درایورهای باز Mesa و nouveau/NVK است.",
                 term_copy: "کپی مشخصات",
                 term_copied: "کپی شد! ✓",
-                cta_title: "آماده کامپایل ایمیج ISO هستید؟",
-                cta_desc: "هنوز ایمیج پیش‌ساخته روی میرورها قرار نگرفته است. اسکریپت رسمی را دریافت کنید و بدون نیاز به دسترسی روت، ایمیج سیستم را خودتان بسازید.",
+                cta_title: "ایمیج اختصاصی AdoOS را بیلد کنید",
+                cta_desc: "تمامی مراحل بیلد بازتولیدپذیر بوده و نیازی به دسترسی کاربر ریشه ندارد. راهنمای کامپایل سورس را مطالعه کنید.",
                 cta_button: "ورود به مرکز ساخت ISO",
-                footer_about: "توزیع لینوکسی فوق‌سبک بر پایه آلپاین با تمرکز بر سادگی، سرعت و ساخت‌های بازتولیدپذیر.",
+                footer_about: "توزیع لینوکسی سبک‌وزن بر پایه آلپاین که تمام تغییرات آن در قالب لایه‌ها و پروفایل‌های مستقل اعمال شده‌اند.",
                 footer_links: "پیوندها",
                 footer_github: "مخزن گیت‌هاب",
                 footer_telegram: "کانال تلگرام",
-                footer_build: "راهنمای ساخت",
+                footer_build: "مرکز ساخت ISO",
                 footer_dev: "توسعه‌دهنده",
                 footer_status_title: "وضعیت پروژه",
-                footer_tree: "درخت توسعه فعال (v0.1.0)",
-                footer_status_note: "پیش‌انتشار، هنوز عمومی منتشر نشده."
+                footer_tree: "درخت توسعه Live ISO",
+                footer_status_note: "سورس‌ها در گیت‌هاب در دسترس هستند."
             },
             ja: {
-                tagline: "超軽量AlpineベースOSプラットフォーム",
+                tagline: "Alpine派生プラットフォーム",
                 nav_overview: "概要",
-                nav_specs: "仕様",
+                nav_specs: "設計思想",
+                nav_scope: "境界線",
                 nav_build: "ISOビルド",
-                nav_docs: "ドキュメント",
-                hero_status: "AdoOS v0.1.0 dev • 開発ツリー稼働中",
+                nav_docs: "ステータス",
+                hero_status: "Live ISOツリー • 非特権再現可能ビルド",
                 hero_title: "Ado Operating System",
-                hero_desc: "Alpine Linux 3.24.1派生ディストリビューション。改変のないmusl libc、OpenRC、標準apkを採用。決定論的ビルド機構と洗練された開発オーバーレイを提供します。",
-                btn_build_iso: "ISOのビルド手順",
-                btn_specs: "アーキテクチャ仕様",
-                specs_heading: "システムアーキテクチャ",
-                specs_subheading: "AdoOSディストリビューションの基本設計原則",
-                card1_badge: "ベースシステム",
-                card1_title: "無改変のAlpineベース",
-                card1_text: "Alpine 3.24.1、musl libc、OpenRCをベースに採用。aportsツリーは上流のコードをそのまま利用し、libcの断片化を排除しています。",
-                card1_footer: "完全なAlpine互換性を維持",
-                card2_badge: "パッケージ管理",
-                card2_title: "公式apkのネイティブ統合",
-                card2_text: "パッケージマネージャはAlpine純正のapkです。同一のリポジトリと検証体制を保ち、AdoOSの差異はプロファイルとオーバーレイのみに限定されます。",
-                card2_footer: "独自フォークによる負債ゼロ",
-                card3_badge: "決定性",
-                card3_title: "再現可能なビルド",
-                card3_text: "カーネルは公式linux-lts 6.18.39に固定。ISOのタイムスタンプをGitコミットと一致させることで、バイト単位で同一なビルドを保証します。",
-                card3_footer: "ビットレベルでの完全検証性",
+                hero_desc: "すべての変更がプロファイル、オーバーレイ、パッケージとして完結し、レシピのパッチ改変を行わないAlpine派生ディストリビューション。Alpine 3.24.1、musl libc、OpenRC、aboツールを採用。",
+                btn_build_iso: "ISOビルド手順 (Root不要)",
+                btn_specs: "設計ルール",
+                specs_heading: "設計規則：フォークではなくレイヤーの追加",
+                specs_subheading: "AdoOSは上流のAlpine公式を変更せず、宣言的レイヤーを重ねます",
+                card1_badge: "完全な上流維持",
+                card1_title: "無改変のAportsツリー",
+                card1_text: "aports内のレシピは一切変更しません。ISOプロファイルmkimg.adoos.shは$HOME/.mkimage/経由でクリーンにロードされます。",
+                card1_footer: "上流との断片化ゼロ",
+                card2_badge: "ツールチェーン",
+                card2_title: "リブランドされた abo マネージャ",
+                card2_text: "apk-tools 3.0.6をaboとしてリブランド。暗号署名互換性を完全に保ち、公式Alpineミラーから直接パッケージを扱います。",
+                card2_footer: "Alpine公式ミラーとの直接同期",
+                card3_badge: "ビルドの完全性",
+                card3_title: "非特権かつ決定論的",
+                card3_text: "unshare -Urによりroot権限なしでビルド可能。公式minirootfsのSHA-256を検証し、コミット時刻(SOURCE_DATE_EPOCH)で完全な再現性を確保。",
+                card3_footer: "minirootfsハッシュ自動検証",
+                scope_heading: "プロジェクトの明確な範囲と制約 (Non-Goals)",
+                scope_subheading: "AdoOSが提供するもの、および意図的に除外している設計",
+                scope1_t: "ネイティブglibcレイヤーの非搭載",
+                scope1_d: "純粋なmusl libc環境。gcompatによる基礎C soname互換は備えますが、glibcアプリはFlatpakおよびdistroboxでの稼働を前提とします。",
+                scope2_t: "独自バイナリリポジトリの不保持",
+                scope2_d: "独自のパッケージリポジトリをホストしません。公式Alpineのmain/communityリポジトリを直接使用し、サプライチェーンリスクを抑えます。",
+                scope3_t: "Live ISO環境（インストーラ非搭載）",
+                scope3_d: "RAM上で動作するステートレスな開発・探索用Live環境として設計されています。Calamares等のディスクインストーラはありません。",
+                scope4_t: "オープンソースGPUスタック限定",
+                scope4_d: "プロプライエタリなNVIDIA / CUDAドライバは含みません。Mesa、nouveau、NVKなどの完全オープンソース基盤を採用しています。",
                 term_copy: "仕様をコピー",
                 term_copied: "コピー完了! ✓",
-                cta_title: "ISOを手元でビルドしますか？",
-                cta_desc: "ミラーへの事前ビルド済みバイナリの配布はまだ行っていません。ビルドスクリプトを取得し、非特権環境でソースからクリーンなISOを生成できます。",
-                cta_button: "ビルドセンターへ",
-                footer_about: "シンプルさと決定論的ビルドを追求した、超軽量Alpine LinuxベースのOSプロジェクト。",
+                cta_title: "AdoOS ISOを手元で生成する",
+                cta_desc: "すべてのビルドは再現可能であり、root権限も不要です。ソースレシピから安全にISOをコンパイルできます。",
+                cta_button: "ビルドセンターを開く",
+                footer_about: "レシピをパッチせず、オーバーレイとプロファイルで独立性を保つAlpine Linux派生プロジェクト。",
                 footer_links: "リンク",
                 footer_github: "GitHubリポジトリ",
                 footer_telegram: "公式Telegram",
-                footer_build: "ビルド手順書",
+                footer_build: "ビルドセンター",
                 footer_dev: "開発者情報",
-                footer_status_title: "プロジェクト状況",
-                footer_tree: "開発ツリー（v0.1.0）",
-                footer_status_note: "正式リリース準備中の開発版です。"
+                footer_status_title: "プロジェクト状態",
+                footer_tree: "Live ISO 開発ツリー",
+                footer_status_note: "GitHubにてソースレシピ公開中。"
             }
         };
 
@@ -597,7 +658,6 @@
             document.documentElement.lang = lang;
             document.documentElement.dir = (lang === 'fa') ? 'rtl' : 'ltr';
 
-            // Update text nodes
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
@@ -605,7 +665,6 @@
                 }
             });
 
-            // Update Active Buttons
             ['en', 'fa', 'ja'].forEach(l => {
                 const desktopBtn = document.getElementById(`lang-${l}`);
                 const mobileBtn = document.getElementById(`m-lang-${l}`);
@@ -618,7 +677,6 @@
             const savedLang = localStorage.getItem('ado_lang') || 'en';
             setLang(savedLang);
 
-            // Copy terminal button
             const copyBtn = document.getElementById('copy-report-btn');
             const copyText = document.getElementById('copy-report-text');
             const termContent = document.getElementById('terminal-content');
@@ -634,14 +692,12 @@
                 });
             }
 
-            // Mobile toggle
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
             if (btn && menu) {
                 btn.addEventListener('click', () => menu.classList.toggle('hidden'));
             }
 
-            // Smooth scroll
             const lenis = new Lenis({ duration: 1.0, smooth: true });
             function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
             requestAnimationFrame(raf);
